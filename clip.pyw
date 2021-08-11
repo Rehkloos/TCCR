@@ -1,18 +1,20 @@
 import os
-import requests
 from datetime import datetime
+
+import requests
 import ujson as json
-from dhooks import Webhook, Embed, File
+from dhooks import Webhook
 from dotenv import load_dotenv
 
 load_dotenv()
 TCI = os.getenv("TWITCH_CLIENT_ID")
 TACT = os.getenv("TWITCH_ACCESS_TOKEN")
 webhook = os.getenv("CLIPS_WEBHOOK")
+streamer_name = os.getenv("STREAMER")
 file_time = datetime.now().strftime("%Y_%m_%d")
 
 # streamer = "channel name"
-STREAMER = "bigbossboze"
+STREAMER = streamer_name
 
 URL = f"https://api.twitch.tv/helix/streams?user_login={STREAMER}"
 headers = {
